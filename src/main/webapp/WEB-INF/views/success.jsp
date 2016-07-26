@@ -7,12 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
+    <title></title>
+</head>
 <body>
-<h2>Add Book</h2>
-<form method="post" action="/person/add">
-    bookname:<input type="text" name="name" id="name">
-    author:<input type="text" name="address" id="address">
-    <input type="submit" value="Add">
-</form>
+成功1
 </body>
 </html>

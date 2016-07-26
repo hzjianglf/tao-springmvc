@@ -22,45 +22,37 @@ public class PersonDaoImpl implements PersonDao {
         return this.sessionFactory.getCurrentSession();
     }
 
-    @Override
     public PersonEntity load(String id) {
         return (PersonEntity) this.getCurrentSession().load(PersonEntity.class, id);
     }
 
-    @Override
     public PersonEntity get(String id) {
         return (PersonEntity) this.getCurrentSession().get(PersonEntity.class, id);
     }
 
     @SuppressWarnings("unchecked")
-    @Override
     public List<PersonEntity> findAll() {
         List<PersonEntity> personList = this.getCurrentSession().createQuery("from PersonEntity").setCacheable(true).list();
         return personList;
     }
 
-    @Override
     public void persist(PersonEntity entity) {
         this.getCurrentSession().persist(entity);
     }
 
-    @Override
     public String save(PersonEntity entity) {
         return (String) this.getCurrentSession().save(entity);
     }
 
-    @Override
     public void saveOrUpdate(PersonEntity entity) {
         this.getCurrentSession().saveOrUpdate(entity);
     }
 
-    @Override
     public void delete(String id) {
         PersonEntity entity = this.load(id);
         this.getCurrentSession().delete(entity);
     }
 
-    @Override
     public void flush() {
         this.getCurrentSession().flush();
     }

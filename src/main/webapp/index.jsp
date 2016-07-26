@@ -7,11 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<body>
+<br>
 <h2>Add Book</h2>
 <form method="post" action="/person/add">
-    bookname:<input type="text" name="name" id="name">
-    author:<input type="text" name="address" id="address">
+    <%--bookname:<input type="text" name="name" id="name">
+    author:<input type="text" name="address" id="address">--%>
+    <input type="submit" value="Add">
+</form>
+</br>
+<form method="post" action="/member/add">
+    memberName:<input type="text" name="name" id="memberName">
+    memberAddress:<input type="text" name="address" id="memberAddress">
     <input type="submit" value="Add">
 </form>
 </body>

@@ -1,6 +1,7 @@
 package com.wsp.tao.springmvc.service;
 
 import com.alibaba.fastjson.JSON;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.wsp.tao.springmvc.entity.MemberEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Date;
+
 
 /**
  * Created by wangshupeng1 on 2016/7/24.
@@ -26,8 +30,9 @@ public class TestMemberService {
     @Test
     public void save() {
         MemberEntity member = new MemberEntity();
-        member.setName("利丰贾1");
+        member.setName("利丰贾4");
         member.setAddress("a");
+        member.setCreateDate(new Date());
         memberService.save(member);
         logger.info(JSON.toJSONString(222));
     }

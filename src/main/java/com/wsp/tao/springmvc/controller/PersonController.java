@@ -26,7 +26,7 @@ public class PersonController {
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(PersonEntity personVo){
         PersonEntity person = new PersonEntity();
-        person.setName("王树鹏");
+        person.setName("王树鹏7");
         person.setAddress("长安街");
         person.setAge(11L);
         person.setApplicantId("3");

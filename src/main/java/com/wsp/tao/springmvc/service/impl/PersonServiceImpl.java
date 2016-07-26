@@ -5,6 +5,7 @@ import com.wsp.tao.springmvc.entity.PersonEntity;
 import com.wsp.tao.springmvc.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class PersonServiceImpl implements PersonService {
         personDao.persist(entity);
     }
 
+    @Transactional
     @Override
     public String save(PersonEntity entity) {
         return personDao.save(entity);

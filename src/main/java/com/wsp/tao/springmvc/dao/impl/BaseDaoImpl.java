@@ -44,7 +44,7 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         return null;
     }
 
-    public void persist(T entity) {
+    public void save(T entity) {
         Assert.notNull(entity);
         this.getCurrentSession().persist(entity);
     }

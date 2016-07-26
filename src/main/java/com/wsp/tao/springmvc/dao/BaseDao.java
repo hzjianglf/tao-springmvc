@@ -25,7 +25,7 @@ public interface BaseDao<T, ID extends Serializable> {
      * @param entity
      *            实体对象
      */
-    void persist(T entity);
+    void save(T entity);
 
     /**
      * 合并实体对象

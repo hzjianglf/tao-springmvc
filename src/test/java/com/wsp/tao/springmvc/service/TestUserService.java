@@ -1,6 +1,7 @@
-package com.wsp.tao.springmvc;
+package com.wsp.tao.springmvc.service;
 
 import com.alibaba.fastjson.JSON;
+import com.wsp.tao.springmvc.dao.PersonDao;
 import com.wsp.tao.springmvc.entity.PersonEntity;
 import com.wsp.tao.springmvc.service.PersonService;
 import org.junit.Test;
@@ -28,10 +29,13 @@ public class TestUserService {
     @Autowired
     private PersonService personService;
 
+    @Autowired
+    private PersonDao personDao;
+
     @Test
     public void save() {
         PersonEntity person = new PersonEntity();
-        person.setName("王树鹏");
+        person.setName("王树鹏6");
         person.setAddress("长安街");
         person.setAge(11L);
         person.setApplicantId("3");
@@ -40,6 +44,19 @@ public class TestUserService {
         String id = personService.save(person);
         logger.info(JSON.toJSONString(id));
     }
+
+//    @Test
+//    public void saveDao() {
+//        PersonEntity person = new PersonEntity();
+//        person.setName("王树鹏2");
+//        person.setAddress("长安街");
+//        person.setAge(11L);
+//        person.setApplicantId("3");
+//        person.setId(UUID.randomUUID().toString());
+//        person.setCreateTime(new Timestamp(new Date().getTime()));
+//        String id = personDao.save(person);
+//        logger.info(JSON.toJSONString(id));
+//    }
 
 
 

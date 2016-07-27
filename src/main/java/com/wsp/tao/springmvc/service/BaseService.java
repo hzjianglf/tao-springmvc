@@ -51,4 +51,14 @@ public interface BaseService<T,ID extends Serializable> {
      *            实体对象
      */
     List<T> createQuery(String query);
+
+    /**
+     * 根据原生sql查询
+     *
+     * @param entity
+     *            实体对象
+     */
+    List<T> createSqlQuery(String querySql);
+
+
 }

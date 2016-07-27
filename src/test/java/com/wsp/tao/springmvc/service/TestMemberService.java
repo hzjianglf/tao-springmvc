@@ -67,4 +67,10 @@ public class TestMemberService {
         List<MemberEntity> memberList = memberService.createQuery("from MemberEntity ");
         logger.info(JSON.toJSONString(memberList));
     }
+
+    @Test
+    public void createSqlQuery() {
+        List<MemberEntity> memberList = memberService.createSqlQuery("select * from tao_member");
+        logger.info(JSON.toJSONString(memberList));
+    }
 }

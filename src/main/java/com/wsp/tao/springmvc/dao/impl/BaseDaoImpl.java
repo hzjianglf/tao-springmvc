@@ -70,4 +70,10 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         List<T> list = queryResult.list();
         return  list;
     }
+
+    public List<T> createSqlQuery(String querySql){
+        Query queryResult = this.getCurrentSession().createSQLQuery(querySql);
+        List<T> list = queryResult.list();
+        return  list;
+    }
 }

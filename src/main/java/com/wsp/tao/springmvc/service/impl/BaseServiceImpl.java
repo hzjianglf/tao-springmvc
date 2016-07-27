@@ -40,4 +40,7 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
         return baseDao.createQuery(query);
     }
 
+    public List<T> createSqlQuery(String querySql) {
+        return baseDao.createSqlQuery(querySql);
+    }
 }

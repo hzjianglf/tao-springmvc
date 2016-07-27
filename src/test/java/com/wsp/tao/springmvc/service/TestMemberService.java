@@ -36,4 +36,12 @@ public class TestMemberService {
         memberService.save(member);
         logger.info(JSON.toJSONString(222));
     }
+
+    @Test
+    public void find() {
+        MemberEntity entity =  memberService.find(1L);
+        System.out.print(entity.getCreateDate());
+        logger.info(JSON.toJSONString(entity));
+
+    }
 }

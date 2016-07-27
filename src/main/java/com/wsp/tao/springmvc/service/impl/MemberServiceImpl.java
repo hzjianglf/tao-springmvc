@@ -21,8 +21,30 @@ public class MemberServiceImpl extends BaseServiceImpl<MemberEntity,Long> implem
 
 
     @Override
+    public MemberEntity find(Long aLong) {
+        return super.find(aLong);
+    }
+
+    @Override
     @Transactional
     public void save(MemberEntity member) {
         super.save(member);
     }
+
+    @Override
+    public MemberEntity merge(MemberEntity entity) {
+        return null;
+    }
+
+    @Override
+    public void remove(MemberEntity entity) {
+
+    }
+
+    @Override
+    public void refresh(MemberEntity entity) {
+
+    }
+
+
 }

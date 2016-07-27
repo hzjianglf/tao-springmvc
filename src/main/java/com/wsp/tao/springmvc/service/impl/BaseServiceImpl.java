@@ -17,7 +17,27 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
     }
 
     @Override
+    public T find(ID id) {
+        return baseDao.find(id);
+    }
+
+    @Override
     public void save(T entity) {
         baseDao.save(entity);
+    }
+
+    @Override
+    public T merge(T entity) {
+        return baseDao.merge(entity);
+    }
+
+    @Override
+    public void remove(T entity) {
+        baseDao.remove(entity);
+    }
+
+    @Override
+    public void refresh(T entity) {
+        baseDao.refresh(entity);
     }
 }

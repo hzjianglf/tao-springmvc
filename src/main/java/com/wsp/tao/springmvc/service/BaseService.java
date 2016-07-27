@@ -1,5 +1,8 @@
 package com.wsp.tao.springmvc.service;
 
+import com.wsp.tao.springmvc.common.utils.PageUtil;
+import com.wsp.tao.springmvc.entity.QueryResult;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -59,6 +62,8 @@ public interface BaseService<T,ID extends Serializable> {
      *            实体对象
      */
     List<T> createSqlQuery(String querySql);
+
+    public QueryResult queryPages(PageUtil page);
 
 
 }

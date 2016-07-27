@@ -2,7 +2,9 @@ package com.wsp.tao.springmvc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.wsp.tao.springmvc.common.utils.PageUtil;
 import com.wsp.tao.springmvc.entity.MemberEntity;
+import com.wsp.tao.springmvc.entity.QueryResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -32,7 +34,7 @@ public class TestMemberService {
     public void save() {
         MemberEntity member = new MemberEntity();
         member.setName("王树鹏");
-        member.setAddress("北京市朝阳区");
+        member.setAddress("北京市朝阳区1");
         member.setCreateDate(new Date());
         memberService.save(member);
         logger.info(JSON.toJSONString(222));
@@ -72,5 +74,17 @@ public class TestMemberService {
     public void createSqlQuery() {
         List<MemberEntity> memberList = memberService.createSqlQuery("select * from tao_member");
         logger.info(JSON.toJSONString(memberList));
+    }
+
+    @Test
+    public void queryPages() {
+
+        PageUtil pageUtil = new PageUtil();
+        pageUtil.setPageNow(1);
+        pageUtil.setPageSize(3);
+        pageUtil.setModelName("MemberEntity");
+        QueryResult<MemberEntity> pageList = memberService.queryPages(pageUtil);
+        List<MemberEntity> memberList = pageList.getResultList();
+        logger.info(JSON.toJSONString(pageList));
     }
 }

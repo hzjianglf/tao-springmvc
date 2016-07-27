@@ -1,6 +1,8 @@
 package com.wsp.tao.springmvc.dao.impl;
 
+import com.wsp.tao.springmvc.common.utils.PageUtil;
 import com.wsp.tao.springmvc.dao.BaseDao;
+import com.wsp.tao.springmvc.entity.QueryResult;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -75,6 +77,20 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         Query queryResult = this.getCurrentSession().createSQLQuery(querySql);
         List<T> list = queryResult.list();
         return  list;
+    }
+
+    public QueryResult<T> queryPages(PageUtil page){
+        Long totalL = (Long) this.getCurrentSession().createQuery("select count(*) from " + page.getModelName()).uniqueResult();
+        page.setTotalCount(totalL.intValue());
+
+        QueryResult queryResult = new QueryResult();
+        queryResult.setAllCount(totalL);
+        queryResult.setAllPage(page.getPages());
+        queryResult.setCurrentPage(page.getPageNow());
+        queryResult.setPageSize(page.getPageSize());
+        queryResult.setResultList(this.getCurrentSession().createQuery("from " +page.getModelName()).setFirstResult((page.getPageNow()-1)*page.getPageSize()).setMaxResults(page.getPageSize()).list());
+
+        return queryResult;
     }
 
 }

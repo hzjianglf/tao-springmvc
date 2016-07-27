@@ -1,6 +1,8 @@
 package com.wsp.tao.springmvc.service.impl;
 
+import com.wsp.tao.springmvc.common.utils.PageUtil;
 import com.wsp.tao.springmvc.dao.BaseDao;
+import com.wsp.tao.springmvc.entity.QueryResult;
 import com.wsp.tao.springmvc.service.BaseService;
 
 import java.io.Serializable;
@@ -42,5 +44,9 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
 
     public List<T> createSqlQuery(String querySql) {
         return baseDao.createSqlQuery(querySql);
+    }
+
+    public QueryResult queryPages(PageUtil page) {
+        return baseDao.queryPages(page);
     }
 }

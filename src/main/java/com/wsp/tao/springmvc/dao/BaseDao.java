@@ -1,5 +1,8 @@
 package com.wsp.tao.springmvc.dao;
 
+import com.wsp.tao.springmvc.common.utils.PageUtil;
+import com.wsp.tao.springmvc.entity.QueryResult;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -62,4 +65,5 @@ public interface BaseDao<T, ID extends Serializable> {
      */
     List<T> createSqlQuery(String querySql);
 
+    public QueryResult queryPages(PageUtil page);
 }

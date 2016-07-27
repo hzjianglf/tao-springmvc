@@ -1,6 +1,5 @@
 package com.wsp.tao.springmvc.controller;
 
-import com.wsp.tao.springmvc.entity.Book;
 import com.wsp.tao.springmvc.entity.PersonEntity;
 import com.wsp.tao.springmvc.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

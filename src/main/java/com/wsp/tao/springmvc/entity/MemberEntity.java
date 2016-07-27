@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by wangshupeng1 on 2016/7/27.
  */
 @Entity
-@Table(name = "tao_member", schema = "", catalog = "xd_bond")
+@Table(name = "tao_member", schema = "", catalog = "tao")
 public class MemberEntity {
 
     /** ID */

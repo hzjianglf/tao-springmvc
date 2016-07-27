@@ -1,7 +1,9 @@
 package com.wsp.tao.springmvc.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by wangshupeng1 on 2016/7/27.
@@ -70,6 +72,8 @@ public class MemberEntity {
     private Long area;
 
     private Long memberRank;
+
+    private List<OrderEntity> orders = new ArrayList<OrderEntity>();
 
     @Id
     @Column(name = "id")
@@ -372,4 +376,13 @@ public class MemberEntity {
         this.memberRank = memberRank;
     }
 
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
+    }
 }

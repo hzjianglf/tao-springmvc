@@ -59,6 +59,7 @@ public class TestMemberService {
     @Test
     public void find() {
         MemberEntity entity =  memberService.find(2L);
+        entity.getOrders().get(0).getAddress();
         System.out.print(entity.getCreateDate());
         logger.info(JSON.toJSONString(entity));
     }

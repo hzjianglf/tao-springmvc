@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.wsp.tao.springmvc.common.utils.PageUtil;
 import com.wsp.tao.springmvc.entity.MemberEntity;
 import com.wsp.tao.springmvc.entity.OrderEntity;
+import com.wsp.tao.springmvc.entity.OrderItemEntity;
 import com.wsp.tao.springmvc.entity.QueryResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +46,8 @@ public class TestOrderService {
         OrderEntity entity =  orderService.find(3L);
         MemberEntity member =  entity.getMember();
         member.getAddress();
+        List<OrderItemEntity> orders = entity.getOrderItems();
+        orders.get(0).getFullName();
         System.out.print(entity.getCreateDate());
         logger.info(JSON.toJSONString(entity));
     }

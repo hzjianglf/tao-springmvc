@@ -42,6 +42,13 @@ public class TestOrderItemService {
     }
 
     @Test
+    public void find() {
+        OrderItemEntity orderItem = orderItemService.find(5L);
+        OrderEntity order = orderItem.getOrders();
+        logger.info(JSON.toJSONString(orderItem));
+    }
+
+    @Test
     public void queryPages() {
 
         PageUtil pageUtil = new PageUtil();

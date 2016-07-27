@@ -1,7 +1,9 @@
 package com.wsp.tao.springmvc.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by wangshupeng1 on 2016/7/27.
@@ -75,16 +77,7 @@ public class OrderEntity {
 
     private Long shippingMethod;
 
-
-    @ManyToOne(cascade=CascadeType.REFRESH,fetch = FetchType.EAGER)
-    @JoinColumn(name ="member",nullable = false)
-    public MemberEntity getMember() {
-        return member;
-    }
-
-    public void setMember(MemberEntity member) {
-        this.member = member;
-    }
+    private List<OrderItemEntity> orderItems = new ArrayList<OrderItemEntity>();
 
     @Id
     @javax.persistence.Column(name = "id")
@@ -428,5 +421,25 @@ public class OrderEntity {
 
     public void setShippingMethod(Long shippingMethod) {
         this.shippingMethod = shippingMethod;
+    }
+
+    @ManyToOne(cascade=CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinColumn(name ="member",nullable = false)
+    public MemberEntity getMember() {
+        return member;
+    }
+
+    public void setMember(MemberEntity member) {
+        this.member = member;
+    }
+
+
+    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    public List<OrderItemEntity> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItemEntity> orderItems) {
+        this.orderItems = orderItems;
     }
 }

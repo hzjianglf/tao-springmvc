@@ -22,7 +22,7 @@ public class OrderItemEntity {
     private String sn;
     private String thumbnail;
     private Integer weight;
-    private Long orders;
+    private OrderEntity orders;
     private Long product;
 
     @Id
@@ -156,16 +156,6 @@ public class OrderItemEntity {
     }
 
     @Basic
-    @Column(name = "orders")
-    public Long getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Long orders) {
-        this.orders = orders;
-    }
-
-    @Basic
     @Column(name = "product")
     public Long getProduct() {
         return product;
@@ -175,4 +165,14 @@ public class OrderItemEntity {
         this.product = product;
     }
 
+
+    @ManyToOne(cascade=CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinColumn(name ="orders",nullable = false)
+    public OrderEntity getOrders() {
+        return orders;
+    }
+
+    public void setOrders(OrderEntity orders) {
+        this.orders = orders;
+    }
 }

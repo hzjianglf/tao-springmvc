@@ -18,17 +18,4 @@ public class MemberServiceImpl extends BaseServiceImpl<MemberEntity,Long> implem
     public void setBaseDao(MemberDao memberDao) {
         super.setBaseDao(memberDao);
     }
-
-
-    @Override
-    public MemberEntity find(Long aLong) {
-        return super.find(aLong);
-    }
-
-    @Override
-    @Transactional
-    public void save(MemberEntity member) {
-        super.save(member);
-    }
-
 }

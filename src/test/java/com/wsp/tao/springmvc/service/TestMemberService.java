@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -38,10 +39,32 @@ public class TestMemberService {
     }
 
     @Test
+    public void delete() {
+        MemberEntity member = new MemberEntity();
+        member.setId(1L);
+        memberService.remove(member);
+        logger.info(JSON.toJSONString(222));
+    }
+
+    @Test
+    public void update() {
+        MemberEntity member = new MemberEntity();
+        member.setId(2L);
+        member.setAddress("京东金融");
+        memberService.update(member);
+        logger.info(JSON.toJSONString(222));
+    }
+
+    @Test
     public void find() {
-        MemberEntity entity =  memberService.find(1L);
+        MemberEntity entity =  memberService.find(2L);
         System.out.print(entity.getCreateDate());
         logger.info(JSON.toJSONString(entity));
+    }
 
+    @Test
+    public void createQuery() {
+        List<MemberEntity> memberList = memberService.createQuery("from MemberEntity ");
+        logger.info(JSON.toJSONString(memberList));
     }
 }

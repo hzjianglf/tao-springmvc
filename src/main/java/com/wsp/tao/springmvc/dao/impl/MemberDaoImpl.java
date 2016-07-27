@@ -10,23 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository("memberDao")
 public class MemberDaoImpl extends BaseDaoImpl<MemberEntity,Long> implements MemberDao {
 
-    public Long getIdentifier(MemberEntity entity) {
-        return null;
-    }
-
-    public boolean isManaged(MemberEntity entity) {
-        return false;
-    }
-
-    public void detach(MemberEntity entity) {
-
-    }
-
-    public void clear() {
-
-    }
-
-    public void flush() {
-
-    }
 }

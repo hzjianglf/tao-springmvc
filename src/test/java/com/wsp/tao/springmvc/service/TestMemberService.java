@@ -30,8 +30,8 @@ public class TestMemberService {
     @Test
     public void save() {
         MemberEntity member = new MemberEntity();
-        member.setName("利丰贾4");
-        member.setAddress("a");
+        member.setName("王树鹏");
+        member.setAddress("北京市朝阳区");
         member.setCreateDate(new Date());
         memberService.save(member);
         logger.info(JSON.toJSONString(222));

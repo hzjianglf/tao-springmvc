@@ -31,20 +31,4 @@ public class MemberServiceImpl extends BaseServiceImpl<MemberEntity,Long> implem
         super.save(member);
     }
 
-    @Override
-    public MemberEntity merge(MemberEntity entity) {
-        return null;
-    }
-
-    @Override
-    public void remove(MemberEntity entity) {
-
-    }
-
-    @Override
-    public void refresh(MemberEntity entity) {
-
-    }
-
-
 }

@@ -4,6 +4,7 @@ import com.wsp.tao.springmvc.dao.BaseDao;
 import com.wsp.tao.springmvc.service.BaseService;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by wangshupeng1 on 2016/7/27.
@@ -17,18 +18,8 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
     }
 
     @Override
-    public T find(ID id) {
-        return baseDao.find(id);
-    }
-
-    @Override
     public void save(T entity) {
         baseDao.save(entity);
-    }
-
-    @Override
-    public T merge(T entity) {
-        return baseDao.merge(entity);
     }
 
     @Override
@@ -36,8 +27,17 @@ public class BaseServiceImpl<T,ID extends Serializable> implements BaseService<T
         baseDao.remove(entity);
     }
 
-    @Override
-    public void refresh(T entity) {
-        baseDao.refresh(entity);
+    public void update(T entity) {
+        baseDao.update(entity);
     }
+
+    @Override
+    public T find(ID id) {
+        return baseDao.find(id);
+    }
+
+    public List<T> createQuery(String query) {
+        return baseDao.createQuery(query);
+    }
+
 }

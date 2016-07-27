@@ -2,13 +2,10 @@ package com.wsp.tao.springmvc.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.wsp.tao.springmvc.entity.MemberEntity;
-import com.wsp.tao.springmvc.entity.PersonEntity;
 import com.wsp.tao.springmvc.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

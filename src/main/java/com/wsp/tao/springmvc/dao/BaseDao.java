@@ -1,8 +1,5 @@
 package com.wsp.tao.springmvc.dao;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -65,11 +62,4 @@ public interface BaseDao<T, ID extends Serializable> {
      */
     List<T> createSqlQuery(String querySql);
 
-    /**
-     * 查询分页数据
-     *
-     * @param entity
-     *            实体对象
-     */
-    public Page<T> hqlQueryForPage(String hsql, List<Object> parameters,Pageable pageable);
 }

@@ -13,6 +13,64 @@ public class MemberEntity {
     /** ID */
     private long id;
 
+    private Date createDate;
+
+    private Date modifyDate;
+
+    private String address;
+
+    private Long amount;
+
+    private String attributeValue1;
+
+    private String attributeValue2;
+
+    private String attributeValue3;
+
+    private String attributeValue4;
+
+    private String attributeValue5;
+
+    private String attributeValue6;
+
+    private String email;
+
+    private Boolean isEnabled;
+
+    private Boolean isLocked;
+
+    private Date lockedDate;
+
+    private Date loginDate;
+
+    private Integer loginFailureCount;
+
+    private String loginIp;
+
+    private String mobile;
+
+    private String name;
+
+    private String password;
+
+    private String phone;
+
+    private Long point;
+
+    private String registerIp;
+
+    private Date safeKeyExpire;
+
+    private String safeKeyValue;
+
+    private String username;
+
+    private String zipCode;
+
+    private Long area;
+
+    private Long memberRank;
+
     @Id
     @Column(name = "id")
     public long getId() {
@@ -22,8 +80,6 @@ public class MemberEntity {
     public void setId(long id) {
         this.id = id;
     }
-
-    private Date createDate;
 
     @Basic
     @Column(name = "create_date")
@@ -35,20 +91,16 @@ public class MemberEntity {
         this.createDate = createDate;
     }
 
-    private Date modifyDate;
-
     @Basic
     @Column(name = "modify_date")
     public Date getModifyDate() {
         return modifyDate;
     }
 
+    
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
     }
-
-    
-    private String address;
 
     @Basic
     @Column(name = "address")
@@ -60,8 +112,6 @@ public class MemberEntity {
         this.address = address;
     }
 
-    private Long amount;
-
     @Basic
     @Column(name = "amount")
     public Long getAmount() {
@@ -71,8 +121,6 @@ public class MemberEntity {
     public void setAmount(Long amount) {
         this.amount = amount;
     }
-
-    private String attributeValue1;
 
     @Basic
     @Column(name = "attribute_value1")
@@ -84,8 +132,6 @@ public class MemberEntity {
         this.attributeValue1 = attributeValue1;
     }
 
-    private String attributeValue2;
-
     @Basic
     @Column(name = "attribute_value2")
     public String getAttributeValue2() {
@@ -95,8 +141,6 @@ public class MemberEntity {
     public void setAttributeValue2(String attributeValue2) {
         this.attributeValue2 = attributeValue2;
     }
-
-    private String attributeValue3;
 
     @Basic
     @Column(name = "attribute_value3")
@@ -108,8 +152,6 @@ public class MemberEntity {
         this.attributeValue3 = attributeValue3;
     }
 
-    private String attributeValue4;
-
     @Basic
     @Column(name = "attribute_value4")
     public String getAttributeValue4() {
@@ -119,8 +161,6 @@ public class MemberEntity {
     public void setAttributeValue4(String attributeValue4) {
         this.attributeValue4 = attributeValue4;
     }
-
-    private String attributeValue5;
 
     @Basic
     @Column(name = "attribute_value5")
@@ -132,8 +172,6 @@ public class MemberEntity {
         this.attributeValue5 = attributeValue5;
     }
 
-    private String attributeValue6;
-
     @Basic
     @Column(name = "attribute_value6")
     public String getAttributeValue6() {
@@ -143,8 +181,6 @@ public class MemberEntity {
     public void setAttributeValue6(String attributeValue6) {
         this.attributeValue6 = attributeValue6;
     }
-
-    private String email;
 
     @Basic
     @Column(name = "email")
@@ -156,8 +192,6 @@ public class MemberEntity {
         this.email = email;
     }
 
-    private Boolean isEnabled;
-
     @Basic
     @Column(name = "is_enabled")
     public Boolean getIsEnabled() {
@@ -167,8 +201,6 @@ public class MemberEntity {
     public void setIsEnabled(Boolean isEnabled) {
         this.isEnabled = isEnabled;
     }
-
-    private Boolean isLocked;
 
     @Basic
     @Column(name = "is_locked")
@@ -180,8 +212,6 @@ public class MemberEntity {
         this.isLocked = isLocked;
     }
 
-    private Date lockedDate;
-
     @Basic
     @Column(name = "locked_date")
     public Date getLockedDate() {
@@ -191,8 +221,6 @@ public class MemberEntity {
     public void setLockedDate(Date lockedDate) {
         this.lockedDate = lockedDate;
     }
-
-    private Date loginDate;
 
     @Basic
     @Column(name = "login_date")
@@ -204,8 +232,6 @@ public class MemberEntity {
         this.loginDate = loginDate;
     }
 
-    private Integer loginFailureCount;
-
     @Basic
     @Column(name = "login_failure_count")
     public Integer getLoginFailureCount() {
@@ -215,8 +241,6 @@ public class MemberEntity {
     public void setLoginFailureCount(Integer loginFailureCount) {
         this.loginFailureCount = loginFailureCount;
     }
-
-    private String loginIp;
 
     @Basic
     @Column(name = "login_ip")
@@ -228,8 +252,6 @@ public class MemberEntity {
         this.loginIp = loginIp;
     }
 
-    private String mobile;
-
     @Basic
     @Column(name = "mobile")
     public String getMobile() {
@@ -239,8 +261,6 @@ public class MemberEntity {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-
-    private String name;
 
     @Basic
     @Column(name = "name")
@@ -252,8 +272,6 @@ public class MemberEntity {
         this.name = name;
     }
 
-    private String password;
-
     @Basic
     @Column(name = "password")
     public String getPassword() {
@@ -263,8 +281,6 @@ public class MemberEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    private String phone;
 
     @Basic
     @Column(name = "phone")
@@ -276,8 +292,6 @@ public class MemberEntity {
         this.phone = phone;
     }
 
-    private Long point;
-
     @Basic
     @Column(name = "point")
     public Long getPoint() {
@@ -287,8 +301,6 @@ public class MemberEntity {
     public void setPoint(Long point) {
         this.point = point;
     }
-
-    private String registerIp;
 
     @Basic
     @Column(name = "register_ip")
@@ -300,8 +312,6 @@ public class MemberEntity {
         this.registerIp = registerIp;
     }
 
-    private Date safeKeyExpire;
-
     @Basic
     @Column(name = "safe_key_expire")
     public Date getSafeKeyExpire() {
@@ -311,8 +321,6 @@ public class MemberEntity {
     public void setSafeKeyExpire(Date safeKeyExpire) {
         this.safeKeyExpire = safeKeyExpire;
     }
-
-    private String safeKeyValue;
 
     @Basic
     @Column(name = "safe_key_value")
@@ -324,8 +332,6 @@ public class MemberEntity {
         this.safeKeyValue = safeKeyValue;
     }
 
-    private String username;
-
     @Basic
     @Column(name = "username")
     public String getUsername() {
@@ -335,8 +341,6 @@ public class MemberEntity {
     public void setUsername(String username) {
         this.username = username;
     }
-
-    private String zipCode;
 
     @Basic
     @Column(name = "zip_code")
@@ -348,8 +352,6 @@ public class MemberEntity {
         this.zipCode = zipCode;
     }
 
-    private Long area;
-
     @Basic
     @Column(name = "area")
     public Long getArea() {
@@ -359,8 +361,6 @@ public class MemberEntity {
     public void setArea(Long area) {
         this.area = area;
     }
-
-    private Long memberRank;
 
     @Basic
     @Column(name = "member_rank")

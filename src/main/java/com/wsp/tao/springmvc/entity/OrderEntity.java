@@ -13,6 +13,70 @@ import java.util.Date;
 public class OrderEntity {
     private long id;
 
+    private Date createDate;
+
+    private Date modifyDate;
+
+    private String address;
+
+    private Integer amountPaid;
+
+    private String areaName;
+
+    private String consignee;
+
+    private Integer couponDiscount;
+
+    private Date expire;
+
+    private Integer fee;
+
+    private Integer freight;
+
+    private String invoiceTitle;
+
+    private Boolean isAllocatedStock;
+
+    private Boolean isInvoice;
+
+    private Date lockExpire;
+
+    private String memo;
+
+    private Integer offsetAmount;
+
+    private Integer orderStatus;
+
+    private String paymentMethodName;
+
+    private Integer paymentStatus;
+
+    private String phone;
+
+    private Long point;
+
+    private String promotion;
+
+    private Integer promotionDiscount;
+
+    private String sn;
+
+    private Integer tax;
+
+    private String zipCode;
+
+    private Long area;
+
+    private Long couponCode;
+
+    private Long member;
+
+    private Long operator;
+
+    private Long paymentMethod;
+
+    private Long shippingMethod;
+
     @Id
     @javax.persistence.Column(name = "id")
     public long getId() {
@@ -22,8 +86,6 @@ public class OrderEntity {
     public void setId(long id) {
         this.id = id;
     }
-
-    private Date createDate;
 
     @Basic
     @javax.persistence.Column(name = "create_date")
@@ -35,8 +97,6 @@ public class OrderEntity {
         this.createDate = createDate;
     }
 
-    private Date modifyDate;
-
     @Basic
     @javax.persistence.Column(name = "modify_date")
     public Date getModifyDate() {
@@ -46,8 +106,6 @@ public class OrderEntity {
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
     }
-
-    private String address;
 
     @Basic
     @javax.persistence.Column(name = "address")
@@ -59,8 +117,6 @@ public class OrderEntity {
         this.address = address;
     }
 
-    private Integer amountPaid;
-
     @Basic
     @javax.persistence.Column(name = "amount_paid")
     public Integer getAmountPaid() {
@@ -70,8 +126,6 @@ public class OrderEntity {
     public void setAmountPaid(Integer amountPaid) {
         this.amountPaid = amountPaid;
     }
-
-    private String areaName;
 
     @Basic
     @javax.persistence.Column(name = "area_name")
@@ -83,8 +137,6 @@ public class OrderEntity {
         this.areaName = areaName;
     }
 
-    private String consignee;
-
     @Basic
     @javax.persistence.Column(name = "consignee")
     public String getConsignee() {
@@ -94,8 +146,6 @@ public class OrderEntity {
     public void setConsignee(String consignee) {
         this.consignee = consignee;
     }
-
-    private Integer couponDiscount;
 
     @Basic
     @javax.persistence.Column(name = "coupon_discount")
@@ -107,8 +157,6 @@ public class OrderEntity {
         this.couponDiscount = couponDiscount;
     }
 
-    private Date expire;
-
     @Basic
     @javax.persistence.Column(name = "expire")
     public Date getExpire() {
@@ -118,8 +166,6 @@ public class OrderEntity {
     public void setExpire(Date expire) {
         this.expire = expire;
     }
-
-    private Integer fee;
 
     @Basic
     @javax.persistence.Column(name = "fee")
@@ -131,8 +177,6 @@ public class OrderEntity {
         this.fee = fee;
     }
 
-    private Integer freight;
-
     @Basic
     @javax.persistence.Column(name = "freight")
     public Integer getFreight() {
@@ -142,8 +186,6 @@ public class OrderEntity {
     public void setFreight(Integer freight) {
         this.freight = freight;
     }
-
-    private String invoiceTitle;
 
     @Basic
     @javax.persistence.Column(name = "invoice_title")
@@ -155,8 +197,6 @@ public class OrderEntity {
         this.invoiceTitle = invoiceTitle;
     }
 
-    private Boolean isAllocatedStock;
-
     @Basic
     @javax.persistence.Column(name = "is_allocated_stock")
     public Boolean getIsAllocatedStock() {
@@ -166,8 +206,6 @@ public class OrderEntity {
     public void setIsAllocatedStock(Boolean isAllocatedStock) {
         this.isAllocatedStock = isAllocatedStock;
     }
-
-    private Boolean isInvoice;
 
     @Basic
     @javax.persistence.Column(name = "is_invoice")
@@ -179,8 +217,6 @@ public class OrderEntity {
         this.isInvoice = isInvoice;
     }
 
-    private Date lockExpire;
-
     @Basic
     @javax.persistence.Column(name = "lock_expire")
     public Date getLockExpire() {
@@ -190,8 +226,6 @@ public class OrderEntity {
     public void setLockExpire(Date lockExpire) {
         this.lockExpire = lockExpire;
     }
-
-    private String memo;
 
     @Basic
     @javax.persistence.Column(name = "memo")
@@ -203,8 +237,6 @@ public class OrderEntity {
         this.memo = memo;
     }
 
-    private Integer offsetAmount;
-
     @Basic
     @javax.persistence.Column(name = "offset_amount")
     public Integer getOffsetAmount() {
@@ -214,8 +246,6 @@ public class OrderEntity {
     public void setOffsetAmount(Integer offsetAmount) {
         this.offsetAmount = offsetAmount;
     }
-
-    private Integer orderStatus;
 
     @Basic
     @javax.persistence.Column(name = "order_status")
@@ -227,8 +257,6 @@ public class OrderEntity {
         this.orderStatus = orderStatus;
     }
 
-    private String paymentMethodName;
-
     @Basic
     @javax.persistence.Column(name = "payment_method_name")
     public String getPaymentMethodName() {
@@ -238,8 +266,6 @@ public class OrderEntity {
     public void setPaymentMethodName(String paymentMethodName) {
         this.paymentMethodName = paymentMethodName;
     }
-
-    private Integer paymentStatus;
 
     @Basic
     @javax.persistence.Column(name = "payment_status")
@@ -251,8 +277,6 @@ public class OrderEntity {
         this.paymentStatus = paymentStatus;
     }
 
-    private String phone;
-
     @Basic
     @javax.persistence.Column(name = "phone")
     public String getPhone() {
@@ -262,8 +286,6 @@ public class OrderEntity {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    private Long point;
 
     @Basic
     @javax.persistence.Column(name = "point")
@@ -275,8 +297,6 @@ public class OrderEntity {
         this.point = point;
     }
 
-    private String promotion;
-
     @Basic
     @javax.persistence.Column(name = "promotion")
     public String getPromotion() {
@@ -286,8 +306,6 @@ public class OrderEntity {
     public void setPromotion(String promotion) {
         this.promotion = promotion;
     }
-
-    private Integer promotionDiscount;
 
     @Basic
     @javax.persistence.Column(name = "promotion_discount")
@@ -323,8 +341,6 @@ public class OrderEntity {
         this.shippingStatus = shippingStatus;
     }
 
-    private String sn;
-
     @Basic
     @javax.persistence.Column(name = "sn")
     public String getSn() {
@@ -334,8 +350,6 @@ public class OrderEntity {
     public void setSn(String sn) {
         this.sn = sn;
     }
-
-    private Integer tax;
 
     @Basic
     @javax.persistence.Column(name = "tax")
@@ -347,8 +361,6 @@ public class OrderEntity {
         this.tax = tax;
     }
 
-    private String zipCode;
-
     @Basic
     @javax.persistence.Column(name = "zip_code")
     public String getZipCode() {
@@ -358,8 +370,6 @@ public class OrderEntity {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
-    private Long area;
 
     @Basic
     @javax.persistence.Column(name = "area")
@@ -371,8 +381,6 @@ public class OrderEntity {
         this.area = area;
     }
 
-    private Long couponCode;
-
     @Basic
     @javax.persistence.Column(name = "coupon_code")
     public Long getCouponCode() {
@@ -382,8 +390,6 @@ public class OrderEntity {
     public void setCouponCode(Long couponCode) {
         this.couponCode = couponCode;
     }
-
-    private Long member;
 
     @Basic
     @javax.persistence.Column(name = "member")
@@ -395,8 +401,6 @@ public class OrderEntity {
         this.member = member;
     }
 
-    private Long operator;
-
     @Basic
     @javax.persistence.Column(name = "operator")
     public Long getOperator() {
@@ -407,8 +411,6 @@ public class OrderEntity {
         this.operator = operator;
     }
 
-    private Long paymentMethod;
-
     @Basic
     @javax.persistence.Column(name = "payment_method")
     public Long getPaymentMethod() {
@@ -418,8 +420,6 @@ public class OrderEntity {
     public void setPaymentMethod(Long paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
-
-    private Long shippingMethod;
 
     @Basic
     @javax.persistence.Column(name = "shipping_method")

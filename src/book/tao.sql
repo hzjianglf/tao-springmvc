@@ -1,6 +1,6 @@
 /*
 SQLyog v10.2 
-MySQL - 5.1.73-community-log : Database - tao
+MySQL - 5.6.24 : Database - tao
 *********************************************************************
 */
 
@@ -15,32 +15,6 @@ MySQL - 5.1.73-community-log : Database - tao
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`tao` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 USE `tao`;
-
-/*Table structure for table `person` */
-
-DROP TABLE IF EXISTS `person`;
-
-CREATE TABLE `person` (
-  `id` varchar(255) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `age` bigint(20) DEFAULT NULL,
-  `applicant_id` varchar(255) DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `emergency_contact_one` varchar(255) DEFAULT NULL,
-  `emergency_contact_one_mobile` varchar(255) DEFAULT NULL,
-  `emergency_contact_two` varchar(255) DEFAULT NULL,
-  `emergency_contact_two_mobile` varchar(255) DEFAULT NULL,
-  `id_no_url` varchar(255) DEFAULT NULL,
-  `income_certificat_url` varchar(255) DEFAULT NULL,
-  `mobile` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `profession` varchar(255) DEFAULT NULL,
-  `sex` bigint(20) DEFAULT NULL,
-  `wages` decimal(19,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `person` */
 
 /*Table structure for table `t_sys_permission` */
 
@@ -166,6 +140,41 @@ CREATE TABLE `t_sys_user_role_rel` (
 
 insert  into `t_sys_user_role_rel`(`id`,`user_id`,`role_id`,`create_time`) values (1,1,1,'2015-01-23 12:04:50'),(26,10,1,'2015-01-27 17:27:45'),(27,10,11,'2015-01-27 17:27:45'),(31,0,0,'2015-01-29 15:40:26'),(33,10,13,'2015-01-29 15:46:16'),(34,16,1,'2015-01-31 01:48:20'),(37,2,1,'2015-04-01 16:40:52'),(38,2,13,'2015-04-01 16:40:52'),(39,28,1,'2015-04-16 18:34:48'),(40,2,12,'2015-04-27 18:29:52'),(41,3,12,'2015-04-27 18:29:59'),(42,4,12,'2015-04-27 18:30:04');
 
+/*Table structure for table `tao_cart` */
+
+DROP TABLE IF EXISTS `tao_cart`;
+
+CREATE TABLE `tao_cart` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_date` datetime NOT NULL,
+  `modify_date` datetime NOT NULL,
+  `cart_key` varchar(255) NOT NULL,
+  `member` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tao_cart` */
+
+insert  into `tao_cart`(`id`,`create_date`,`modify_date`,`cart_key`,`member`) values (1,'2015-06-26 17:22:31','2015-06-26 17:22:31','826a9fca-8ea2-4ade-af63-0607333177247beccdaf77a575871908eb73c0920094',NULL);
+
+/*Table structure for table `tao_cart_item` */
+
+DROP TABLE IF EXISTS `tao_cart_item`;
+
+CREATE TABLE `tao_cart_item` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_date` datetime NOT NULL,
+  `modify_date` datetime NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `cart` bigint(20) NOT NULL,
+  `product` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tao_cart_item` */
+
+insert  into `tao_cart_item`(`id`,`create_date`,`modify_date`,`quantity`,`cart`,`product`) values (1,'2015-06-26 17:22:31','2015-06-26 17:22:35',2,1,290);
+
 /*Table structure for table `tao_member` */
 
 DROP TABLE IF EXISTS `tao_member`;
@@ -207,11 +216,11 @@ CREATE TABLE `tao_member` (
   `member_rank` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tao_member` */
 
-insert  into `tao_member`(`id`,`create_date`,`modify_date`,`address`,`amount`,`attribute_value0`,`attribute_value1`,`attribute_value2`,`attribute_value3`,`attribute_value4`,`attribute_value5`,`attribute_value6`,`balance`,`birth`,`email`,`gender`,`is_enabled`,`is_locked`,`locked_date`,`login_date`,`login_failure_count`,`login_ip`,`mobile`,`name`,`password`,`phone`,`point`,`register_ip`,`safe_key_expire`,`safe_key_value`,`username`,`zip_code`,`area`,`member_rank`) values (1,'2016-07-27 10:22:46',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'2016-07-27 10:26:08',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'2016-07-27 10:26:53',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'2016-07-27 10:28:42',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'2016-07-27 10:29:06',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'2016-07-27 10:29:19',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'2016-07-27 10:29:29',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'枕头',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'2016-07-27 00:00:00',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'2016-07-27 12:49:51',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'2016-07-27 14:30:44',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'2016-07-27 14:39:46',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'2016-07-27 14:43:46',NULL,'北京市朝阳区',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'王树鹏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `tao_member`(`id`,`create_date`,`modify_date`,`address`,`amount`,`attribute_value0`,`attribute_value1`,`attribute_value2`,`attribute_value3`,`attribute_value4`,`attribute_value5`,`attribute_value6`,`balance`,`birth`,`email`,`gender`,`is_enabled`,`is_locked`,`locked_date`,`login_date`,`login_failure_count`,`login_ip`,`mobile`,`name`,`password`,`phone`,`point`,`register_ip`,`safe_key_expire`,`safe_key_value`,`username`,`zip_code`,`area`,`member_rank`) values (13,'2016-07-27 21:34:35',NULL,'北京市朝阳区1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'王树鹏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,NULL,NULL,'京东金融',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'2016-07-27 10:26:53',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'2016-07-27 10:28:42',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'2016-07-27 10:29:06',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'2016-07-27 10:29:19',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'2016-07-27 10:29:29',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'枕头',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'2016-07-27 00:00:00',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'2016-07-27 12:49:51',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,'2016-07-27 14:30:44',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(11,'2016-07-27 14:39:46',NULL,'a',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'利丰贾4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,'2016-07-27 14:43:46',NULL,'北京市朝阳区',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'王树鹏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(14,'2016-07-27 21:38:21',NULL,'北京市朝阳区1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'王树鹏',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `tao_order` */
 
@@ -254,11 +263,11 @@ CREATE TABLE `tao_order` (
   `payment_method` bigint(20) DEFAULT NULL,
   `shipping_method` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tao_order` */
 
-insert  into `tao_order`(`id`,`create_date`,`modify_date`,`address`,`amount_paid`,`area_name`,`consignee`,`coupon_discount`,`expire`,`fee`,`freight`,`invoice_title`,`is_allocated_stock`,`is_invoice`,`lock_expire`,`memo`,`offset_amount`,`order_status`,`payment_method_name`,`payment_status`,`phone`,`point`,`promotion`,`promotion_discount`,`shipping_method_name`,`shipping_status`,`sn`,`tax`,`zip_code`,`area`,`coupon_code`,`member`,`operator`,`payment_method`,`shipping_method`) values (3,'2015-05-23 16:54:49','2015-05-25 16:30:00','fdfd','0','北京市西城区','akaa','0','2015-05-24 16:54:49','0','0',NULL,'\0','\0','2015-05-23 17:10:10',NULL,'0',0,'网上支付',0,'12121212121',2320,NULL,'0','普通快递',0,'20150523103','0','12121',3,NULL,2,1,1,1),(4,'2015-05-23 16:56:26','2015-05-23 17:12:05','fdfd','1804','北京市西城区','akaa','0',NULL,'0','10',NULL,'\0','\0','2015-05-23 17:12:25',NULL,'0',2,'货到付款',2,'12121212121',1794,NULL,'0','顺丰速递',2,'20150523104','0','12121',3,NULL,2,1,3,2),(5,'2015-05-23 17:12:12','2015-05-23 17:26:22','fdfd','500','北京市西城区','akaa','0',NULL,'0','10',NULL,'\0','\0','2015-05-23 17:26:42',NULL,'0',1,'货到付款',1,'12121212121',568,NULL,'0','顺丰速递',2,'20150523105','0','12121',3,NULL,2,1,3,2);
+insert  into `tao_order`(`id`,`create_date`,`modify_date`,`address`,`amount_paid`,`area_name`,`consignee`,`coupon_discount`,`expire`,`fee`,`freight`,`invoice_title`,`is_allocated_stock`,`is_invoice`,`lock_expire`,`memo`,`offset_amount`,`order_status`,`payment_method_name`,`payment_status`,`phone`,`point`,`promotion`,`promotion_discount`,`shipping_method_name`,`shipping_status`,`sn`,`tax`,`zip_code`,`area`,`coupon_code`,`member`,`operator`,`payment_method`,`shipping_method`) values (3,'2015-05-23 16:54:49','2015-05-25 16:30:00','fdfd','0','北京市西城区','akaa','0','2015-05-24 16:54:49','0','0',NULL,'\0','\0','2015-05-23 17:10:10',NULL,'0',0,'网上支付',0,'12121212121',2320,NULL,'0','普通快递',0,'20150523103','0','12121',3,NULL,2,1,1,1),(4,'2015-05-23 16:56:26','2015-05-23 17:12:05','fdfd','1804','北京市西城区','akaa','0',NULL,'0','10',NULL,'\0','\0','2015-05-23 17:12:25',NULL,'0',2,'货到付款',2,'12121212121',1794,NULL,'0','顺丰速递',2,'20150523104','0','12121',3,NULL,2,1,3,2),(5,'2015-05-23 17:12:12','2015-05-23 17:26:22','fdfd','500','北京市西城区','akaa','0',NULL,'0','10',NULL,'\0','\0','2015-05-23 17:26:42',NULL,'0',1,'货到付款',1,'12121212121',568,NULL,'0','顺丰速递',2,'20150523105','0','12121',3,NULL,2,1,3,2),(6,'2016-07-27 21:47:11','2016-07-27 21:47:11','我的订单地址',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `tao_order_item` */
 
@@ -281,11 +290,11 @@ CREATE TABLE `tao_order_item` (
   `orders` bigint(20) DEFAULT NULL,
   `product` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tao_order_item` */
 
-insert  into `tao_order_item`(`id`,`create_date`,`modify_date`,`full_name`,`is_gift`,`name`,`price`,`quantity`,`return_quantity`,`shipped_quantity`,`sn`,`thumbnail`,`weight`,`orders`,`product`) values (5,'2015-05-23 16:54:49','2015-05-23 16:54:49','维依恋 2013春秋装新款 韩版修身短款女士机车大码pu皮衣短外套[黑色 M]','\0','维依恋 2013春秋装新款 韩版修身短款女士机车大码pu皮衣短外套','266',2,0,0,'201304352','http://storage.shopxx.net/demo-image/3.0/201301/d1d15c1d-e5da-414e-ac53-745b56ccf369-thumbnail.jpg',NULL,3,255),(6,'2015-05-23 16:54:49','2015-05-23 16:54:49','尚都比拉女装2013夏装新款蕾丝连衣裙 韩版修身雪纺打底裙子 春款[白色 M]','\0','尚都比拉女装2013夏装新款蕾丝连衣裙 韩版修身雪纺打底裙子 春款','298',6,0,0,'201304529','http://storage.shopxx.net/demo-image/3.0/201301/0ff130db-0a1b-4b8d-a918-ed9016317009-thumbnail.jpg',NULL,3,300),(7,'2015-05-23 16:56:26','2015-05-23 16:57:19','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子[绿色 M]','\0','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子','299',6,0,6,'201304519','http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg',NULL,4,290),(8,'2015-05-23 17:12:12','2015-05-23 17:12:52','JackJones杰克琼斯男士立领拼接式夹克I212121041[黑色 XS]','\0','JackJones杰克琼斯男士立领拼接式夹克I212121041','269',1,0,1,'201304263','http://storage.shopxx.net/demo-image/3.0/201301/4107e1ce-5e7c-4941-bc0f-718f35ba14cd-thumbnail.jpg',NULL,5,166),(9,'2015-05-23 17:12:12','2015-05-23 17:12:52','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子[绿色 M]','\0','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子','299',1,0,1,'201304519','http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg',NULL,5,290);
+insert  into `tao_order_item`(`id`,`create_date`,`modify_date`,`full_name`,`is_gift`,`name`,`price`,`quantity`,`return_quantity`,`shipped_quantity`,`sn`,`thumbnail`,`weight`,`orders`,`product`) values (5,'2015-05-23 16:54:49','2015-05-23 16:54:49','维依恋 2013春秋装新款 韩版修身短款女士机车大码pu皮衣短外套[黑色 M]','\0','维依恋 2013春秋装新款 韩版修身短款女士机车大码pu皮衣短外套','266',2,0,0,'201304352','http://storage.shopxx.net/demo-image/3.0/201301/d1d15c1d-e5da-414e-ac53-745b56ccf369-thumbnail.jpg',NULL,3,255),(6,'2015-05-23 16:54:49','2015-05-23 16:54:49','尚都比拉女装2013夏装新款蕾丝连衣裙 韩版修身雪纺打底裙子 春款[白色 M]','\0','尚都比拉女装2013夏装新款蕾丝连衣裙 韩版修身雪纺打底裙子 春款','298',6,0,0,'201304529','http://storage.shopxx.net/demo-image/3.0/201301/0ff130db-0a1b-4b8d-a918-ed9016317009-thumbnail.jpg',NULL,3,300),(7,'2015-05-23 16:56:26','2015-05-23 16:57:19','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子[绿色 M]','\0','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子','299',6,0,6,'201304519','http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg',NULL,4,290),(8,'2015-05-23 17:12:12','2015-05-23 17:12:52','JackJones杰克琼斯男士立领拼接式夹克I212121041[黑色 XS]','\0','JackJones杰克琼斯男士立领拼接式夹克I212121041','269',1,0,1,'201304263','http://storage.shopxx.net/demo-image/3.0/201301/4107e1ce-5e7c-4941-bc0f-718f35ba14cd-thumbnail.jpg',NULL,5,166),(9,'2015-05-23 17:12:12','2015-05-23 17:12:52','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子[绿色 M]','\0','尚都比拉2013夏装新款 韩版优雅甜美淑女装 春款蕾丝雪纺连衣裙子','299',1,0,1,'201304519','http://storage.shopxx.net/demo-image/3.0/201301/51afeef5-f6cb-4936-abea-315cfca0edc0-thumbnail.jpg',NULL,5,290),(10,'2016-07-27 21:59:17','2016-07-27 21:59:17','毛呢大衣',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -4,7 +4,6 @@ import com.wsp.tao.springmvc.dao.MemberDao;
 import com.wsp.tao.springmvc.entity.MemberEntity;
 import com.wsp.tao.springmvc.service.MemberService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 

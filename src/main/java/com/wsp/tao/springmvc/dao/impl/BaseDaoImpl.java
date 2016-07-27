@@ -88,7 +88,7 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         queryResult.setAllPage(page.getPages());
         queryResult.setCurrentPage(page.getPageNow());
         queryResult.setPageSize(page.getPageSize());
-        queryResult.setResultList(this.getCurrentSession().createQuery("from " +page.getModelName()).setFirstResult((page.getPageNow()-1)*page.getPageSize()).setMaxResults(page.getPageSize()).list());
+        queryResult.setResultList(this.getCurrentSession().createQuery("from " +page.getModelName()+" order by createDate desc ").setFirstResult((page.getPageNow()-1)*page.getPageSize()).setMaxResults(page.getPageSize()).list());
 
         return queryResult;
     }

@@ -7,6 +7,8 @@ import com.wsp.tao.springmvc.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,7 +37,13 @@ public class MemberController {
         member.setAddress("a");
         member.setCreateDate(new Date());
         memberService.save(member);
-        logger.info("MemberController add member req:{}",JSON.toJSONString(member));
+        logger.info("MemberController add member req:{}", JSON.toJSONString(member));
+        return "success";
+    }
+
+    @RequestMapping(value = "/list",method = RequestMethod.POST)
+    public String list(MemberEntity member,Integer page) {
+        logger.info("MemberController add member req:{}", JSON.toJSONString(member));
         return "success";
     }
 }

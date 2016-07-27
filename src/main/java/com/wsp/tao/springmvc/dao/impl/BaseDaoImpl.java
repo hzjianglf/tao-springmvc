@@ -1,15 +1,14 @@
 package com.wsp.tao.springmvc.dao.impl;
 
-import com.sun.org.apache.regexp.internal.REUtil;
 import com.wsp.tao.springmvc.dao.BaseDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.util.Assert;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -28,6 +27,9 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
 
     @Autowired
     private SessionFactory sessionFactory;
+
+//    @PersistenceContext
+//    private EntityManager em;
 
     private Session getCurrentSession() {
         return this.sessionFactory.getCurrentSession();
@@ -76,4 +78,53 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         List<T> list = queryResult.list();
         return  list;
     }
+
+    public Page<T> hqlQueryForPage(String hsql, List<Object> parameters,Pageable pageable) {
+            return null;
+    }
+
+//    /**
+//     * hsql 自动分页
+//     *
+//     * @param hsql
+//     *
+//     * @param parameters
+//     *            参数
+//     * @param pageable
+//     *            分页详情
+//     * @return 返回分页信息
+//     */
+//    public Page<T> hqlQueryForPage(String hsql, List<Object> parameters,Pageable pageable) {
+//        Query query = this.getCurrentSession().createQuery(hsql);
+//        Assert.notNull(parameters);
+//        for (int i = 0; i < parameters.size(); i++) {
+//            parameters.set(i, parameters.get(i));
+//        }
+//        if (parameters != null) {
+//            for (int i = 0; i < parameters.size(); i++) {
+//                query.setParameter(i + 1, parameters.get(i));
+//            }
+//        }
+//
+//        return pageable == null ? new PageImpl<T>(query.getResultList()): readPage(query, pageable);
+//    }
+//
+//    /**
+//     * 设置分页查询
+//     *
+//     * @param query
+//     *            查询
+//     * @param pageable
+//     *            分页信息
+//     * @return
+//     */
+//    private Page<T> readPage(Query query, Pageable pageable) {
+//
+//        query.setFirstResult(pageable.getOffset());
+//        query.setMaxResults(pageable.getPageSize());
+//
+//        int total = 100;
+//
+//        return new PageImpl<T>(query.getResultList(), pageable, total);
+//    }
 }

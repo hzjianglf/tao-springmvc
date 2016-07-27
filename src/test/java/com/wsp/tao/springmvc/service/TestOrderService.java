@@ -41,6 +41,15 @@ public class TestOrderService {
     }
 
     @Test
+    public void find() {
+        OrderEntity entity =  orderService.find(3L);
+        MemberEntity member =  entity.getMember();
+        member.getAddress();
+        System.out.print(entity.getCreateDate());
+        logger.info(JSON.toJSONString(entity));
+    }
+
+    @Test
     public void queryPages() {
 
         PageUtil pageUtil = new PageUtil();

@@ -1,8 +1,6 @@
 package com.wsp.tao.springmvc.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -69,13 +67,24 @@ public class OrderEntity {
 
     private Long couponCode;
 
-    private Long member;
+    private MemberEntity member;
 
     private Long operator;
 
     private Long paymentMethod;
 
     private Long shippingMethod;
+
+
+    @ManyToOne(cascade=CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinColumn(name ="member",nullable = false)
+    public MemberEntity getMember() {
+        return member;
+    }
+
+    public void setMember(MemberEntity member) {
+        this.member = member;
+    }
 
     @Id
     @javax.persistence.Column(name = "id")
@@ -389,16 +398,6 @@ public class OrderEntity {
 
     public void setCouponCode(Long couponCode) {
         this.couponCode = couponCode;
-    }
-
-    @Basic
-    @javax.persistence.Column(name = "member")
-    public Long getMember() {
-        return member;
-    }
-
-    public void setMember(Long member) {
-        this.member = member;
     }
 
     @Basic

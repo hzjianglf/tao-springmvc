@@ -7,28 +7,22 @@ import java.util.List;
  */
 public class PageUtil<T> {
 
-    private String modelName;
-    private int totalCount;
-    private int pages;
-    private int pageNow;
-    private int pageSize;
+    private static PageUtil page = null;
+    private String modelName;   //实体名字,比如User,就是写User
+    private int pageNow;        //当前页
+    private int pageSize;       //每页显示个数
+    private int totalCount;     //总数
 
-    private List<T> resultList;
-
-    public int getTotalCount() {
-        return totalCount;
+    public int getPages() {     //获取总页数
+        return totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public String getModelName() {
+        return modelName;
     }
 
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public int getPageNow() {
@@ -47,19 +41,11 @@ public class PageUtil<T> {
         this.pageSize = pageSize;
     }
 
-    public List<T> getResultList() {
-        return resultList;
+    public int getTotalCount() {
+        return totalCount;
     }
 
-    public void setResultList(List<T> resultList) {
-        this.resultList = resultList;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
     }
 }

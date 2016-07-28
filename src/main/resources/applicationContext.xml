@@ -10,5 +10,5 @@
     <context:property-placeholder location="classpath:config.properties"/>
     <!-- 扫描service自动注入为bean -->
     <context:component-scan base-package="com.wsp.tao.springmvc.service.impl,com.wsp.tao.springmvc.dao.impl"/>
-
+    <import resource="classpath:applicationContext-shiro.xml"/>
 </beans>

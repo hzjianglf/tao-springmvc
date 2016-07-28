@@ -43,4 +43,10 @@ public class MemberController {
         logger.info("MemberController add member req:{}", JSON.toJSONString(member));
         return "success";
     }
+
+    @RequestMapping(value = "/login")
+    public String login() {
+        logger.info("MemberController add member req:{}");
+        return "success";
+    }
 }

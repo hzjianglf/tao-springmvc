@@ -21,4 +21,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer> impleme
         super.setBaseDao(sysUserDao);
     }
 
+    public SysUser findByName(String username) {
+        return null;
+    }
 }

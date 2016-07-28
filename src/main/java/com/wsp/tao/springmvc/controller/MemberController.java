@@ -29,7 +29,7 @@ public class MemberController {
      * @Autohr      王树鹏【wangshupeng1@jd.com】
      * @Date        2016/7/27 8:39
      */
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String add(MemberEntity member) {
         member.setAddress("a");
         member.setCreateDate(new Date());

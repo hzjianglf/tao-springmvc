@@ -1,13 +1,17 @@
 package com.wsp.tao.springmvc.entity;
 
+import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.wsp.tao.springmvc.common.utils.Collections3;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -174,6 +178,24 @@ public class SysUser {
 
     public void setPermissionList(List<SysPermission> permissionList) {
         this.permissionList = permissionList;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Transient
+    public List<String> getRoles() {
+
+        return Collections3.extractToList(roleList, "name");
+    }
+
+    @Transient
+    public List<String> getPermission() {
+        Collection<SysPermission> permissions = Collections2.filter(getPermissionList(), new Predicate<SysPermission>(){
+            @Override
+            public boolean apply(SysPermission permission) {
+                return !StringUtils.isEmpty(permission.getCode());
+            }
+        });
+        return Collections3.extractToList(permissions, "code");
     }
 
     @Override

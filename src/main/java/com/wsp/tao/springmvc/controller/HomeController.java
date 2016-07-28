@@ -45,6 +45,10 @@ public class HomeController {
         return "redirect:/login";
     }
 
+    @RequestMapping(value = "/success",method=RequestMethod.GET)
+    public String login() {
+        return "/success";
+    }
     @RequestMapping("/403")
     public String unauthorizedRole(){
         return "/403";

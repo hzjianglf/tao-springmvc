@@ -1,6 +1,8 @@
 package com.wsp.tao.springmvc.service;
 
 import com.alibaba.fastjson.JSON;
+import com.wsp.tao.springmvc.common.utils.GsonUtil;
+import com.wsp.tao.springmvc.entity.OrderItemEntity;
 import com.wsp.tao.springmvc.entity.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,22 @@ public class TestUserService {
         public void find() {
                 SysUser user =  sysUserService.find(1);
                 user.getRoleList();
+                user.getRoles();
+                user.getPermission();
                 logger.info("user res:{}", JSON.toJSON(user));
+        }
+
+        @Test
+        public void findByUserName() {
+                String username = "admin";
+                SysUser sysUserResult = sysUserService.findByName(username);
+                logger.info("user res:{}", GsonUtil.toJson(sysUserResult));
+        }
+
+        public static void main(String[] args) {
+                TestEntity test = new TestEntity();
+                test.setName("王树鹏");
+                logger.info("user res:{}", GsonUtil.toJson(test));
         }
 
 }

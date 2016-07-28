@@ -6,6 +6,7 @@ import com.wsp.tao.springmvc.entity.MemberEntity;
 import com.wsp.tao.springmvc.entity.SysUser;
 import com.wsp.tao.springmvc.service.MemberService;
 import com.wsp.tao.springmvc.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,12 +17,15 @@ import javax.annotation.Resource;
 @Service("sysUserService")
 public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer> implements SysUserService {
 
+    @Autowired
+    private  SysUserDao sysUserDao;
+
     @Resource(name = "sysUserDao")
     public void setBaseDao(SysUserDao sysUserDao) {
         super.setBaseDao(sysUserDao);
     }
 
     public SysUser findByName(String username) {
-        return null;
+       return sysUserDao.findByName(username);
     }
 }

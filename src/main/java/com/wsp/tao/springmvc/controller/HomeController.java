@@ -56,6 +56,20 @@ public class HomeController {
         return "/index";
     }
 
+    /**
+     * @Title       indexController
+     * @Description  首页所需数据
+     * @Autohr      王树鹏【wangshupeng1@jd.com】
+     * @Date        2016/7/28 23:14
+     */
+    @RequestMapping("/welcome")
+    public String welcome(Model model){
+        MemberEntity member = new MemberEntity();
+        member.setAddress("北京市朝阳区");
+        model.addAttribute("member",member);
+        return "/welcome";
+    }
+
     @RequestMapping("/403")
     public String unauthorizedRole(){
         return "/403";

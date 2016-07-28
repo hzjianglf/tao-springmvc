@@ -15,8 +15,8 @@ public class SysPermission {
     private String code;
     private String description;
     private Date createTime;
-
     private SysResource resource;	//所属菜单
+    private Integer isChecked;		//临时标记，判断是否选中
 
     @Id
     @Column(name = "id")
@@ -67,4 +67,12 @@ public class SysPermission {
         this.resource = resource;
     }
 
+    @Transient
+    public Integer getIsChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(Integer isChecked) {
+        this.isChecked = isChecked;
+    }
 }

@@ -377,7 +377,7 @@ public class MemberEntity {
     }
 
 
-    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     public List<OrderEntity> getOrders() {
         return orders;
     }

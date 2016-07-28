@@ -17,6 +17,7 @@ public class SysResource {
     private int parentId;
     private String description;
     private Date createTime;
+    private Integer isChecked; //临时标记是否选择
 
     @Id
     @Column(name = "id")
@@ -98,4 +99,12 @@ public class SysResource {
         this.createTime = createTime;
     }
 
+    @Transient
+    public Integer getIsChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(Integer isChecked) {
+        this.isChecked = isChecked;
+    }
 }

@@ -1,5 +1,6 @@
 package com.wsp.tao.springmvc.controller;
 
+import com.wsp.tao.springmvc.entity.MemberEntity;
 import com.wsp.tao.springmvc.entity.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -49,6 +50,20 @@ public class HomeController {
     public String login() {
         return "/success";
     }
+
+    @RequestMapping("/index")
+    public String index(){
+        return "/index";
+    }
+
+    @RequestMapping("/welcome")
+    public String welcome(Model model){
+        MemberEntity member = new MemberEntity();
+        member.setAddress("北京市朝阳区");
+        model.addAttribute("member",member);
+        return "/welcome";
+    }
+
     @RequestMapping("/403")
     public String unauthorizedRole(){
         return "/403";

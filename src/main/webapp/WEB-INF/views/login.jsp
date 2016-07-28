@@ -12,8 +12,8 @@
 </head>
 <body>
 <form method="post" action="/login">
-    <input type="text" name="username" id="username"><br>
-    <input type="text" name="password" id="password">
+    <input type="text" name="username" id="username" value="admin"><br>
+    <input type="text" name="password" id="password" value="admin">
     <input type="submit" value="sub">
 </form>
 </body>

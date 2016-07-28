@@ -56,14 +56,6 @@ public class HomeController {
         return "/index";
     }
 
-    @RequestMapping("/welcome")
-    public String welcome(Model model){
-        MemberEntity member = new MemberEntity();
-        member.setAddress("北京市朝阳区");
-        model.addAttribute("member",member);
-        return "/welcome";
-    }
-
     @RequestMapping("/403")
     public String unauthorizedRole(){
         return "/403";

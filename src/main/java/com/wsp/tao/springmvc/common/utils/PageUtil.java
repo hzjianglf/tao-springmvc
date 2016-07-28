@@ -13,6 +13,15 @@ public class PageUtil<T> {
     private int pageSize;       //每页显示个数
     private int totalCount;     //总数
 
+    public PageUtil(){
+
+    }
+
+    public PageUtil(Integer pageNow,Integer pageSize){
+        this.pageNow =pageNow;
+        this.pageSize = pageSize;
+    }
+
     public int getPages() {     //获取总页数
         return totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
     }

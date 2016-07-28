@@ -32,7 +32,9 @@ public class SysUser {
     private String email;
     private int status;
     private String salt;
-    private Date createTime;
+    private Date createDate;
+
+    private Date modifyDate;
 
     private List<SysRole> roleList = Lists.newArrayList();				//角色列表
     private List<SysResource> resourceList = Lists.newArrayList();		//菜单列表
@@ -129,15 +131,24 @@ public class SysUser {
     }
 
     @Basic
-    @Column(name = "create_time")
-    public Date getCreateTime() {
-        return createTime;
+    @Column(name = "create_date")
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
+    @Basic
+    @Column(name = "modify_date")
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
 
     @ManyToMany(cascade =CascadeType.REFRESH,fetch = FetchType.EAGER)
     @JoinTable(name = "t_sys_user_role_rel", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })

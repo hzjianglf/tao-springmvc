@@ -3,11 +3,14 @@ package com.wsp.tao.springmvc.shiro;
 import com.wsp.tao.springmvc.entity.SysRole;
 import com.wsp.tao.springmvc.entity.SysUser;
 import com.wsp.tao.springmvc.service.SysUserService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +27,7 @@ public class AuthoRealm extends AuthorizingRealm {
     @Autowired
     private SysUserService sysUserService;
 
+    private SysUser currentUser;
     /**
      * 权限认证
      */
@@ -53,11 +57,27 @@ public class AuthoRealm extends AuthorizingRealm {
             //UsernamePasswordToken对象用来存放提交的登录信息
             UsernamePasswordToken token=(UsernamePasswordToken) authenticationToken;
             //查出是否有此用户
-            SysUser user=sysUserService.findByName(token.getUsername());
-            if(user!=null){
+        currentUser=sysUserService.findByName(token.getUsername());
+            if(currentUser!=null){
                 //若存在，将此用户存放到登录认证info中
-                return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
+                return new SimpleAuthenticationInfo(currentUser.getUsername(), currentUser.getPassword(), getName());
             }
             return null;
+    }
+
+    @Override
+    protected void assertCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) throws AuthenticationException {
+        try {
+            super.assertCredentialsMatch(token, info);
+            Subject sub = SecurityUtils.getSubject();
+            if (currentUser == null) {
+                return;
+            }
+            sub.getSession().setAttribute("currentUserId", currentUser.getId());
+            sub.getSession().setAttribute("currentUsername",currentUser.getUsername());
+            sub.getSession().setAttribute("currentRealName",currentUser.getRealName());
+        } catch (AuthenticationException ex) {
+            throw ex;
+        }
     }
 }

@@ -2,7 +2,10 @@ package com.wsp.tao.springmvc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.wsp.tao.springmvc.common.utils.GsonUtil;
+import com.wsp.tao.springmvc.common.utils.PageUtil;
+import com.wsp.tao.springmvc.entity.OrderEntity;
 import com.wsp.tao.springmvc.entity.OrderItemEntity;
+import com.wsp.tao.springmvc.entity.QueryResult;
 import com.wsp.tao.springmvc.entity.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 /**
  * Created by wangshupeng1 on 2016/7/28.
@@ -44,6 +49,18 @@ public class TestUserService {
                 TestEntity test = new TestEntity();
                 test.setName("王树鹏");
                 logger.info("user res:{}", GsonUtil.toJson(test));
+        }
+
+        @Test
+        public void queryPages() {
+
+                PageUtil pageUtil = new PageUtil();
+                pageUtil.setPageNow(1);
+                pageUtil.setPageSize(2);
+                pageUtil.setModelName("SysUser");
+                QueryResult<SysUser> pageList = sysUserService.queryPages(pageUtil);
+                List<SysUser> orderList = pageList.getResultList();
+                logger.info(JSON.toJSONString(orderList));
         }
 
 }
